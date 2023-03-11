@@ -1,0 +1,109 @@
+https://localhost/dashboard/docs/use-different-php-version.html
+https://www.php.net/manual/fr/install.unix.apache2.php
+https://devdocs.prestashop-project.org/1.7/basics/installation/system-requirements/
+
+####################################### (libcurl, pré-requis  pour cURL)
+télécharger et installer libcurl (pour PHP < 7.3.0, version >= 7.10.5 ; pour PHP >= 7.3.0, version >= 7.15.5 ; pour PHP >= 8.0.0, version >= 7.29.0) : https://curl.se/
+--with-curl[=DIR]
+où DIR est le repértoire où se trouve les dossiers lib et include de la librairie libcurl installée.
+"In the include directory there should be a folder named curl which should contain the easy.h and curl.h files. There should be a file named libcurl.a located in the lib directory."
+####################################### 
+
+####################################### (libxml, pré-requis pour DOM)
+télécharger et installer libxml (version >= 2.6.0) : https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
+The libxml extension is enabled by default, néanmoins lui préciser l'emplacement de la librairie qu'on a installée :
+si le dossier est un dossier particulier :
+ajouter :   --with-libxml-dir ([DIR]=)
+où ([DIR]) est le dossier où se trouve la librairie libxml installée.
+sinon :
+PHP ira chercher par défaut la librairie libxml dans ces dossiers dans cet ordre :
+1. /usr/local/bin/xml2-config
+2. /usr/bin/xml2-config
+si la version de php qu'on installe est plus grande que 7.3 :
+ --with-libxml
+si la version de php qu'on installe est plus petite que 7.4 :
+--enable-libxml (néanmoins libxml est normalement activée par défaut)
+#######################################
+
+FileInfo activé par défaut. 
+
+####################################### (libpng et libjpeg, pré-requis pour GD)
+ GD library requires libpng and libjpeg to compile.
+ télécharger et installer :
+ ##################
+ pour libjpeg:
+ https://www.ijg.org/
+"When building the jpeg library (prior to building PHP) you must use the --enable-shared option in the configure step. If you do not, you will receive an error saying libjpeg.(a|so) not found when you get to the configure step of building PHP. "
+ si la version de php qu'on installe est plus petite que 7.4 :
+  --with-jpeg-dir=DIR
+ où DIR est le dossier où se trouve la librairie jpeg installée.
+ sinon:
+--with-jpeg
+ ##################
+ pour libpng:
+#######
+libpng a besoin de la librairie zlib (version >= 1.2.0.4) : https://www.zlib.net/
+si la version de php qu'on installe est plus petite que 7.4 :
+--with-zlib-dir[=DIR]
+ où DIR est le dossier où se trouve la librairie jpeg installée.
+ sinon:
+[pas trouvé d'indication/information]
+#######
+ http://www.libpng.org/pub/png/libpng.html
+ si la version de php qu'on installe est plus petite que 7.4 :
+ --with-png-dir=DIR.
+ où DIR est le dossier où se trouve la librairie jpeg installée.
+ sinon:
+[pas trouvé d'indication/information]
+ ##################
+Si le système sur lequel on installe php n'a pas un environnement X d'installé, installer aussi la librairie xpm : http://www.ibiblio.org/pub/Linux/libs/X/!INDEX.html
+ #######################################
+--with-gd
+
+
+####################################### (iconv)
+"You will need nothing if the system you are using is one of the recent POSIX-compliant systems because standard C libraries that are supplied in them must provide iconv facility. Otherwise, you have to get the » libiconv library installed in your system. "
+#######################################
+--with-iconv=/opt/lampp 
+
+####################################### (ICU, pré-requis pour intl)
+si la version de php qu'on installe est plus grande que 7.3 :
+avoir d'installé ICU (version >= 50.1)
+si la version de php qu'on installe est plus petite que 7.4 :
+avoir d'installé ICU (version >= 4.0.0)
+ensuite indiquer où se trouve la librairie ICU :
+$ export LD_LIBRARY_PATH=/opt/icu/lib 
+où /opt/icu/lib est par exemple le dossier où se trouve la lib ICU.
+#######################################
+--enable-intl 
+
+JSON activé par défaut.
+
+--enable-mbstring
+
+####################################### (openssl)
+avoir OpenSSL (version >= 0.9.8) (inclut dans xampp)
+--with-openssl=/opt/lampp 
+#######################################
+
+PDO activé par défaut.
+
+--with-pdo-mysql=mysqlnd 
+
+####################################### (libxml, pré-requis pour SimpleXML)
+si la version de php qu'on installe est plus grande que 7.3 :
+--with-libxml
+si la version de php qu'on installe est plus petite que 7.4 :
+--enable-libxml
+#######################################
+SimpleXML activé par défaut.
+
+#######################################
+si la version de php qu'on installe est plus grande que 7.3 :
+ installer libzip (la plus récente si possible)
+--with-libzip=DIR où DIR est le répertoire où se trouve le libzip qu'on a installé
+si la version de php qu'on installe est plus petite que 7.4 :
+--enable-zip
+#######################################
+--with-zip
+
