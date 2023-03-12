@@ -109,7 +109,7 @@ sinon:
 #######################################
 
 
-Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40 :
+Exemple pour quelqu'un qui utilise lampp 7.3.33 et qui veut installer php 5.6.40 :
 
 (lampp 7.3.33 inclut :
 · curl, version 7.53.1
@@ -125,7 +125,7 @@ Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40
 
 Remarque : nous avons ajouté l'option "--with-icu-dir=/opt/lampp" 
 qui semble nécessaire (probablement pour compenser le fait qu'on
-nous ne fassions pas ici la commande export de bash).
+nous ne fassions pas ici la commande export de bash pour la lib ICU).
 
 ./configure  \
 \
@@ -141,9 +141,61 @@ nous ne fassions pas ici la commande export de bash).
 --with-gd \
 --with-iconv=/opt/lampp \
 --enable-intl \
---with-icu-dir=/opt/lampp
+--with-icu-dir=/opt/lampp \
 --enable-mbstring \
 --with-openssl=/opt/lampp \
 --with-pdo-mysql=mysqlnd \
 --enable-libxml \
---enable-zip 
+--enable-zip
+
+
+exemple d'autres options qui pourraient peut-être être intéressantes :
+
+--enable-inline-optimization \
+--disable-debug \
+--enable-bcmath \
+--enable-calendar \
+--enable-ctype \
+--enable-ftp \
+--enable-gd-native-ttf \
+--enable-magic-quotes \
+--enable-shmop \
+--disable-sigchild \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-wddx \
+--with-gdbm=/opt/lampp \
+--with-freetype-dir=/opt/lampp \
+--with-zlib=yes \
+--with-xsl=/opt/lampp \
+--with-ldap=/opt/lampp \
+--with-imap=/bitnami/xamppunixinstaller73stack-linux-x64/src/imap-2007e \
+--with-imap-ssl \
+--with-gettext=/opt/lampp \
+--with-mssql=shared,/opt/lampp \
+--with-pdo-dblib=shared,/opt/lampp \
+--with-sybase-ct=/opt/lampp \
+--with-mysql-sock=/opt/lampp/var/mysql/mysql.sock \
+--with-mcrypt=/opt/lampp \
+--with-mhash=/opt/lampp \
+--enable-sockets \
+--enable-mbstring=all \
+--enable-mbregex \
+--enable-zend-multibyte \
+--enable-exif \
+--with-bz2=/opt/lampp \
+--with-sqlite=shared,/opt/lampp \
+--with-sqlite3=/opt/lampp \
+--enable-soap \
+--with-xmlrpc \
+--enable-pcntl \
+--with-mysqli=mysqlnd \
+--with-pgsql=shared,/opt/lampp/ \
+--with-pdo-pgsql=/opt/lampp/postgresql \
+--with-pdo_sqlite=/opt/lampp \
+--enable-fileinfo \
+--enable-phar \
+--disable-huge-code-pages \
+--enable-intl \
+--with-libzip
+
