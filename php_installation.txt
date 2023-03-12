@@ -63,7 +63,8 @@ Si le système sur lequel on installe php n'a pas un environnement X d'installé
 ####################################### (iconv)
 "You will need nothing if the system you are using is one of the recent POSIX-compliant systems because standard C libraries that are supplied in them must provide iconv facility. Otherwise, you have to get the » libiconv library installed in your system. "
 #######################################
---with-iconv=/opt/lampp 
+--with-iconv[=DIR]
+ où DIR est le dossier où se trouve la librairie libiconv.
 
 ####################################### (ICU, pré-requis pour intl)
 si la version de php qu'on installe est plus grande que 7.3 :
@@ -105,4 +106,42 @@ si la version de php qu'on installe est plus petite que 7.4 :
 --enable-zip
 #######################################
 --with-zip
+
+
+
+Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40 :
+
+(xamp 7.3.33 inclut :
+· curl, version 7.53.1
+· libxml, version 2.9.4
+· gd, et 
+	· apparement libjpeg, version 9 compatible 
+	· apparement libpng, version 1.6.37
+· zlib, version 1.2.11
+· ICU, version 66.1
+· OpenSSL, version 1.1.1
+· libxml, version 2.9.4
+· libzip, version 1.5.1)
+
+./configure  \
+\
+--prefix=/opt/lampp  \
+--with-apxs2=/opt/lampp/bin/apxs  \
+--with-config-file-path=/opt/lampp/etc \
+\
+--with-curl=/opt/lampp \
+--with-libxml-dir=/opt/lampp \
+--with-jpeg-dir=/opt/lampp \
+--with-zlib-dir=/opt/lampp \
+--with-png-dir=/opt/lampp \
+--with-gd \
+--with-iconv=/opt/lampp \
+--enable-intl \
+--enable-mbstring \
+--with-openssl=/opt/lampp \
+--with-pdo-mysql=mysqlnd \
+--enable-libxml \
+--enable-zip \
+--with-zip
+
 
