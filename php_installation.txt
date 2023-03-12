@@ -111,7 +111,7 @@ sinon:
 
 Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40 :
 
-(xamp 7.3.33 inclut :
+(lampp 7.3.33 inclut :
 · curl, version 7.53.1
 · libxml, version 2.9.4
 · gd, et 
@@ -124,7 +124,8 @@ Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40
 · libzip, version 1.5.1)
 
 Remarque : nous avons ajouté l'option "--with-icu-dir=/opt/lampp" 
-qui semble nécessaire.
+qui semble nécessaire (probablement pour compenser le fait qu'on
+nous ne fassions pas ici la commande export de bash).
 
 ./configure  \
 \
@@ -146,5 +147,3 @@ qui semble nécessaire.
 --with-pdo-mysql=mysqlnd \
 --enable-libxml \
 --enable-zip 
-
-
