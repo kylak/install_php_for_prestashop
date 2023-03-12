@@ -104,9 +104,9 @@ si la version de php qu'on installe est plus grande que 7.3 :
 --with-libzip=DIR où DIR est le répertoire où se trouve le libzip qu'on a installé
 si la version de php qu'on installe est plus petite que 7.4 :
 --enable-zip
-#######################################
+sinon:
 --with-zip
-
+#######################################
 
 
 Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40 :
@@ -123,6 +123,9 @@ Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40
 · libxml, version 2.9.4
 · libzip, version 1.5.1)
 
+Remarque : nous avons ajouté l'option "--with-icu-dir=/opt/lampp" 
+qui semble nécessaire.
+
 ./configure  \
 \
 --prefix=/opt/lampp  \
@@ -137,11 +140,11 @@ Exemple pour quelqu'un qui utilise xampp 7.3.33 et qui veut installer php 5.6.40
 --with-gd \
 --with-iconv=/opt/lampp \
 --enable-intl \
+--with-icu-dir=/opt/lampp
 --enable-mbstring \
 --with-openssl=/opt/lampp \
 --with-pdo-mysql=mysqlnd \
 --enable-libxml \
---enable-zip \
---with-zip
+--enable-zip 
 
 
